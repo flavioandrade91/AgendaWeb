@@ -7,6 +7,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { environment } from '../../../../environments/environment.development';
 
 @Component({
   selector: 'app-consulta-tarefas',
@@ -32,12 +33,7 @@ export class ConsultaTarefas {
 
     //enviar uma requisição HTTP
     this.http
-      .get(
-        `http://localhost:5170/api/tarefas/` +
-          dataHoraInicio +
-          `/` +
-          dataHoraFim
-      )
+      .get(`${environment.apiTarefas}/${dataHoraInicio}/${dataHoraFim}`)
       .subscribe((response) => {
         console.table(response);
       });

@@ -36,9 +36,9 @@
       <label for="categoria" class="form-label">Categoria</label>
       <select class="form-select" id="categoria">
         <option value="">Selecione</option>
-        <option>Trabalho</option>
-        <option>Pessoal</option>
-        <option>Estudos</option>
+        <option *ngFor="let item of categorias()">
+          {{ item.nome }}
+        </option>
       </select>
     </div>
   </div>
